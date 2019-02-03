@@ -11,27 +11,25 @@ package urvish.arraysandstring.firstexample;
  */
 public class UniqueCharMethod2 {
 
-    public static void main(String[] args) {
-        String inputStr = "urvish";
-        System.out.println("Determine if a String has all unique character: " + findResult(inputStr));
+    public static void main(String args[]) {
+        String input = "Urvish";
+
+        if (uniqueCharacters(input)) {
+            System.out.println("The String " + input + " has all unique characters");
+        } else {
+            System.out.println("The String " + input + " has duplicate characters");
+        }
     }
 
-    public static boolean findResult(String input) {
-
-        for (int i = 0; i < input.length(); i++) {
-            int count = 0;
-            char firstChar = input.charAt(i);
-
-            for (int j = i; j < input.length(); j++) {
-               
-                if (firstChar == input.charAt(j)) {
-                    count++;
+    public static boolean uniqueCharacters(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i + 1; j < str.length(); j++) {
+                if (str.charAt(i) == str.charAt(j)) {
+                    return false;
                 }
-            } 
-            if (count > 1) {
-                return false;
             }
         }
         return true;
     }
+
 }
